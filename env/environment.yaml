@@ -1,0 +1,52 @@
+name: null
+
+channels:
+  - pytorch
+  # - pytorch3d
+  - plotly
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+  - pytorch==1.12.1
+  # - pytorch3d==0.7.4
+  - torchvision==0.13.1
+  - cudatoolkit=11.3
+  - opencv
+  - imageio
+  - plotly
+  - python-kaleido
+  - pycocotools
+  - tqdm
+  - openmesh-python
+  - numpy=1.23
+  - scipy
+  - tensorboard
+  - yacs
+  - autopep8
+  - ninja
+  - pyopengl
+  - glfw
+  - graphviz
+  - scikit-image
+  - lpips
+  - optuna
+  - optuna-dashboard
+  - joblib
+  - trimesh
+  - natsort
+  - tmux
+  - pip
+  - pip:
+      - chumpy
+      - git+https://github.com/NVlabs/nvdiffrast/
+      # TODO: How to handle global option? (Ref: https://github.com/conda/conda/blob/main/tests/conda_env/support/advanced-pip/environment.yml)
+      # - --global-option="--no-networks" git+https://github.com/NVlabs/tiny-cuda-nn#subdirectory=bindings/torch
+      # current workaround, skip no-networks global option (Note that using this option builds without neural network (just the input encodings))
+      - git+https://github.com/NVlabs/tiny-cuda-nn#subdirectory=bindings/torch
+      - torchviz
+      - git+https://github.com/facebookresearch/segment-anything.git
+      - mediapipe
+      - open3d
+

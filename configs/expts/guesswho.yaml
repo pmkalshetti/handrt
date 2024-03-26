@@ -1,0 +1,49 @@
+EXPT_NAME: "guesswho"
+DEVICE: "cuda:1"
+
+GUESSWHO:
+  USER: "user1"
+  START_FRAME_ID: 1
+  END_FRAME_ID: 12  # debug
+  FORCE_PREPROCESS_LMK_SEG: True
+  FORCE_PREPROCESS_INIT: True
+
+PLOT:
+  DEPTH_DIFF_MAX_THRESH: 200 # mm
+
+INIT:
+  N_STEPS: 100
+  REPROJ_ERROR_THRESH: 20
+  LR_BETA: 0.01  # 0.01 works
+  LR_OFFSET: 0.00001 ## 0.0001 works
+  LR_GLOBAL_ROT: 0.1  # 0.1 works
+  LR_GLOBAL_TRANSL: 0.0001  # 0.0001 works
+  LR_HAND_POSE: 0.1 # 0.1 works
+  CHAMF_FILTER_POS_DIST: True
+  CHAMF_POS_THRESH: 0.02  # in m
+  CHAMF_FILTER_NRM_DIST: False
+  CHAMF_NRM_THRESH: 90  # degree
+  CHAMF_W_REN: 1.0
+  CHAMF_W_DATA: 1.0
+  W_CHAMFER_POS: 0.5  # 1.0 works
+  W_CHAMFER_NRM: 0.0
+  W_LMK3D: 0.0
+  W_LMK2D: 0.5  # 1.0, 0.5 works
+  W_SIL: 0.1  # 0.5, 0.1 works
+  W_BETA_REG: 10.0  # 10.0 works
+  W_LAPLACE_REG: 100000.0
+  # W_TEMP: 1.0  # TODO: this increases instability, why?, recheck loss
+  W_TEMP_HAND_POSE: 0.0 # 10 is good here
+  W_TEMP_GLOBAL_ROT: 0.0
+  W_TEMP_GLOBAL_TRANSL: 0.0
+  SEG_USING_MESH: False # TODO: use True
+  N_SAMPLES_ON_PC: 1000
+
+
+OPT:
+#   EPOCHS: 100
+  # OPTIMIZE_MATERIAL: False
+  # OPTIMIZE_LIGHT: False
+  # OPTIMIZE_SHAPE: False
+  # OPTIMIZE_POSE: True
+  LR_OFFSET: 0.0005  # initially it was 0.005
